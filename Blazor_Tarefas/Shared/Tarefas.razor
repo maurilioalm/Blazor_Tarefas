@@ -1,7 +1,5 @@
-﻿@inject HttpClient http
-
-<h1>Tarefas</h1>
-
+﻿
+<h1>@Titulo</h1>
 
 @if (tarefas == null)
 {
@@ -29,9 +27,7 @@ else
             {
                 <tr>
                     <td><button @onclick="@(() => RemoverTarefa(item.ID))"><i class="oi oi-trash"></i></button></td>
-                    <td>@item.DataCriacao</td>
-                    <td>@item.Descricao</td>
-                    <td><input type="checkbox" @bind="item.Concluida" />@item.Concluida</td>
+                    <TarefaIndividual item="item"/>
                 </tr>
             }
         </tbody>
@@ -51,23 +47,12 @@ else
 
 @code{
 
-    protected override async Task OnInitializedAsync()
-    {
-        tarefas = await http.GetFromJsonAsync<List<Tarefa>>("dados/Tarefas.json");
-    }
+    [Parameter] public List<Tarefa> tarefas { get; set; }
+    [Parameter] public string Titulo { get; set; }
 
-    public class Tarefa
-    {
 
-        public Guid ID { get; set; }
-        public string Descricao { get; set; }
-        public bool Concluida { get; set; }
-        public DateTime DataCriacao { get; set; }
-    }
 
     private string novaTarefa = "";
-
-    private List<Tarefa> tarefas = new List<Tarefa>();
 
     void AdicionarNovaTarefa()
     {

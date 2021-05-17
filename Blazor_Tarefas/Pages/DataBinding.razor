@@ -1,0 +1,18 @@
+﻿
+
+@page "/databinding"
+
+<h1>@nome</h1>
+
+<hr />
+@*Evento onchange*@
+<input @bind="nome" />
+<hr />
+@*Evento oninput que atualiza em tempo real*@
+<input @bind-value="nome" @bind-value:event="oninput" />
+
+@code {
+
+    public string nome { get; set; }
+
+}

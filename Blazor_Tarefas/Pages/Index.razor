@@ -1,4 +1,20 @@
 ﻿@page "/"
-<h1>Tarefas</h1>
+@inject HttpClient http
 
-<Tarefas></Tarefas>
+<Tarefas tarefas="GetTarefas()" Titulo="Lista de tarefas" ></Tarefas>
+
+@code{
+
+    List<Tarefa> tarefas = new List<Tarefa>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        tarefas = await http.GetFromJsonAsync<List<Tarefa>>("dados/Tarefas.json");
+    }
+
+    private List<Tarefa> GetTarefas()
+    {
+        return tarefas;
+    }
+
+}
