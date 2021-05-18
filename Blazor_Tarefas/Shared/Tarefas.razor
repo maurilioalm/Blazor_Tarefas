@@ -5,13 +5,24 @@
 {
     @*<p>Carregando...</p>*@
     <Alerta>
-        <span style="color:blue;">Carregando Tarefas...</span>
+        <Conteudo1>
+        <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"/>
+        <h1>Aguarde...</h1>
+        </Conteudo1>
+        <Conteudo2>Carregando...</Conteudo2>
     </Alerta>
 }
 else if (!tarefas.Any())
 {
     @*<p>Ainda não existem tarefas...</p>*@
     <Alerta>
+        <Conteudo1>
+            <img src="https://media.giphy.com/media/TqiwHbFBaZ4ti/giphy.gif" />
+            <h1>Ainda não existem registros</h1>
+        </Conteudo1>
+        <Conteudo2>
+            <h2>Inclua algumas tarefas...</h2>
+        </Conteudo2>
     </Alerta>
 }
 else
