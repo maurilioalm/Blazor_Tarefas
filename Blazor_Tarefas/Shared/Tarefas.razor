@@ -4,12 +4,15 @@
 @if (tarefas == null)
 {
     @*<p>Carregando...</p>*@
-    <Alerta Mensagem="Carregando..." />
+    <Alerta>
+        <span style="color:blue;">Carregando Tarefas...</span>
+    </Alerta>
 }
 else if (!tarefas.Any())
 {
     @*<p>Ainda não existem tarefas...</p>*@
-    <Alerta Mensagem="Não existem Tarefas" />
+    <Alerta>
+    </Alerta>
 }
 else
 {
