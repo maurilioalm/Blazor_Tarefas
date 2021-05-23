@@ -1,51 +1,25 @@
 ﻿
 <h1>@Titulo</h1>
 
-@if (tarefas == null)
-{
-    @*<p>Carregando...</p>*@
-    <Alerta>
-        <Conteudo1>
-        <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"/>
-        <h1>Aguarde...</h1>
-        </Conteudo1>
-        <Conteudo2>Carregando...</Conteudo2>
-    </Alerta>
-}
-else if (!tarefas.Any())
-{
-    @*<p>Ainda não existem tarefas...</p>*@
-    <Alerta>
-        <Conteudo1>
-            <img src="https://media.giphy.com/media/TqiwHbFBaZ4ti/giphy.gif" />
-            <h1>Ainda não existem registros</h1>
-        </Conteudo1>
-        <Conteudo2>
-            <h2>Inclua algumas tarefas...</h2>
-        </Conteudo2>
-    </Alerta>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Ação</th>
-                <th>Data</th>
-                <th>Descriçao</th>
-                <th>Concluida</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in tarefas)
-            {
-                <tr>
-                    <TarefaIndividual item="item" RemoveTarefa="RemoverTarefa" />
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ação</th>
+            <th>Data</th>
+            <th>Descriçao</th>
+            <th>Concluida</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ListaGenerica ListaItem="tarefas">
+            <Lista Context="tarefa">
+                <TarefaIndividual item="tarefa" RemoveTarefa="RemoverTarefa" />
+            </Lista>
+        </ListaGenerica>
+    </tbody>
+</table>
+
 
 @if (tarefas != null)
 {
