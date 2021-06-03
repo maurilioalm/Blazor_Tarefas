@@ -1,5 +1,5 @@
 
-using BlazorApp_InjecaoDependencia.Pages.servicos;
+using BlazorApp_InjecaoDependencia.Pages.Servicos;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
