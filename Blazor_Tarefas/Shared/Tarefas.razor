@@ -1,4 +1,5 @@
-﻿
+﻿@inject IJSRuntime js
+
 <h1>@Titulo</h1>
 
 
@@ -58,7 +59,21 @@
     }
     private void RemoverTarefa(Tarefa tarefa)
     {
-        tarefas.Remove(tarefas.First(x => x.ID == tarefa.ID));
+        //tarefas.Remove(tarefas.First(x => x.ID == tarefa.ID));
+        var resultado =
+        ((IJSInProcessRuntime)js).Invoke<bool>("confirm", "Excluir Tarefa ?");
+        //await js.InvokeAsync<bool>("confirm", "Excluir Tarefa ?");
+
+        if (resultado)
+        {
+            tarefas.Remove(tarefas.First(x => x.ID == tarefa.ID));
+            //await js.InvokeVoidAsync("alert", "Tarefa excluída com sucesso.");
+           // await js.InvokeAsync<Object>("MostrarAlerta", "OK, Tarefa exluída.");
+
+        }
+
     }
+
+
 
 }

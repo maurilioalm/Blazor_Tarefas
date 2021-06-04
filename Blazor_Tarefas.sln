@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_Tarefas", "Blazor_Ta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_CicloVida1", "Blazor_CicloVida1\Blazor_CicloVida1.csproj", "{2B39C8D6-7876-4B8A-A64E-6466BC5F1C0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_InjecaoDependencia", "BlazorApp_InjecaoDependencia\BlazorApp_InjecaoDependencia.csproj", "{DB8F42B6-FF7B-4D73-8B3A-914C6AC51C42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp_InjecaoDependencia", "BlazorApp_InjecaoDependencia\BlazorApp_InjecaoDependencia.csproj", "{DB8F42B6-FF7B-4D73-8B3A-914C6AC51C42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
