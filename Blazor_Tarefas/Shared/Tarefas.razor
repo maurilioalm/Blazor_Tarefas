@@ -44,7 +44,9 @@
 
     private string novaTarefa = "";
 
-    void AdicionarNovaTarefa()
+    static int totalTarefas = 0;
+
+    async void AdicionarNovaTarefa()
     {
         if (!string.IsNullOrWhiteSpace(novaTarefa))
         {
@@ -55,8 +57,24 @@
                 ID = Guid.NewGuid()
             });
             novaTarefa = "";
+            totalTarefas = tarefas.Count();
+            //await js.InvokeVoidAsync("getTotalTarefas");
+            await js.InvokeAsync<int>("getTotalTarefasInstancia", DotNetObjectReference.Create(this));
         }
     }
+
+    [JSInvokable]
+    public static Task<int> ObterTotalTarefas()
+    {
+        return Task.FromResult(totalTarefas);
+    }
+
+    [JSInvokable]
+    public Task<int> ObterTotalTarefasInstancia()
+    {
+        return Task.FromResult(totalTarefas);
+    }
+
     private void RemoverTarefa(Tarefa tarefa)
     {
         //tarefas.Remove(tarefas.First(x => x.ID == tarefa.ID));
@@ -68,7 +86,7 @@
         {
             tarefas.Remove(tarefas.First(x => x.ID == tarefa.ID));
             //await js.InvokeVoidAsync("alert", "Tarefa excluída com sucesso.");
-           // await js.InvokeAsync<Object>("MostrarAlerta", "OK, Tarefa exluída.");
+            // await js.InvokeAsync<Object>("MostrarAlerta", "OK, Tarefa exluída.");
 
         }
 
